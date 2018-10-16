@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
-import { PetShop } from "./models/PetShop";
-import { Cat } from "./models/Cat";
-import { Dog } from "./models/Dog";
-import { Hamster } from "./models/Hamster";
-import { Pet } from "./models//Pet";
+import { PetShop } from './models/PetShop';
+import { Cat } from './models/Cat';
+import { Dog } from './models/Dog';
+import { Hamster } from './models/Hamster';
+import { Pet } from './models//Pet';
 import { NgModule } from '@angular/core';
 
 @Component({
     selector: 'pet-shop',
-    template: ` 
+    template: `
         <div class="panel">
         <div class="form-inline">
             <div class="form-group">
@@ -28,7 +28,7 @@ import { NgModule } from '@angular/core';
             </div>
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-8">
-                    <button class="btn btn-default" (click)="addItem(color, price, name)">Add</button>
+                    <button class="btn btn-default" (click)="addPet(color, price, name)">Add</button>
                 </div>
             </div>
         </div>
@@ -39,38 +39,31 @@ import { NgModule } from '@angular/core';
     styles: [`
     button {
     cursor: pointer;
-    
     padding: 20px;
-    
 }
 `]
 })
-
 export class PetShopComponent {
-    petShop: PetShop;
     listTitle: string;
     selectedPets: Pet[];
-
-    addItem(color:string, price: number, name: string) {
-         
-        
-        this.petShop.push(new Dog(color, price, name));
-    }
-
+    petShop: PetShop;
     constructor () {
         this.petShop = new PetShop();
-        this.petShop.addPets([new Cat('white', 453, 'Jeka', true),
+        this.petShop.addPets([
+            new Cat('white', 453, 'Jeka', true),
             new Cat('grey', 334, 'Bonya', true),
             new Cat('white', 234, 'Pepe', false),
             new Dog('black', 654, 'Muhtar'),
             new Dog('brown', 123, 'Tobik'),
-            new Dog('black', 987, 'Lolo'),
+            new Dog('white', 987, 'Lolo'),
             new Hamster('black', 176, true),
             new Hamster('yellow', 431, true),
             new Hamster('white', 830, false)
         ]);
     }
-
+    addPet(color: string, price: number, name: string) {
+        this.petShop.addPets([new Dog(color, price, name)]);
+     }
     showPetList (value: string) {
         this.listTitle = value;
 

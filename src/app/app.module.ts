@@ -1,12 +1,13 @@
-import { NgModule }      from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { PetShopComponent }   from './app.component';
-import { FormsModule }   from '@angular/forms';
-import { PetListComponent }   from './petList.component';
+import { PetShopComponent } from './app.component';
+import { FormsModule } from '@angular/forms';
+import { PetListComponent } from './petList.component';
+
 
 
 @NgModule({
-    imports:      [ BrowserModule, FormsModule ],
+    imports:      [ BrowserModule, FormsModule,   ],
     declarations: [ PetShopComponent, PetListComponent ],
     bootstrap:    [ PetShopComponent ]
 })
